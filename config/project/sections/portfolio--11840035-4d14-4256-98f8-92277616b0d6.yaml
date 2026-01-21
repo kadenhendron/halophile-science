@@ -1,0 +1,24 @@
+defaultPlacement: beginning
+enableVersioning: true
+entryTypes:
+  -
+    uid: 2faae296-354e-4a1f-8422-219648d70c4d # Portfolio Piece
+handle: portfolio
+maxAuthors: 1
+name: Portfolio
+previewTargets:
+  -
+    label: 'Primary entry page'
+    refresh: '1'
+    urlFormat: '{url}'
+propagationMethod: all
+siteSettings:
+  4b9b89e7-a505-4b83-ab72-1ff39f63c8bf: # halophile.science
+    enabledByDefault: true
+    hasUrls: false
+    template: null
+    uriFormat: null
+structure:
+  maxLevels: 1
+  uid: 898dd327-ade1-4d65-b9e3-495e8fe43b66
+type: structure

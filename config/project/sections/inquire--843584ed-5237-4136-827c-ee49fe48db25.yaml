@@ -1,0 +1,21 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  -
+    uid: 936c995a-2981-4d76-b708-f342397dfbb7 # Inquire
+handle: inquire
+maxAuthors: 1
+name: Inquire
+previewTargets:
+  -
+    label: 'Primary entry page'
+    refresh: '1'
+    urlFormat: '{url}'
+propagationMethod: all
+siteSettings:
+  4b9b89e7-a505-4b83-ab72-1ff39f63c8bf: # halophile.science
+    enabledByDefault: true
+    hasUrls: true
+    template: inquire.twig
+    uriFormat: inquire
+type: single

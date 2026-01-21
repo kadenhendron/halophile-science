@@ -1,0 +1,8 @@
+baseUrl: $PRIMARY_SITE_URL
+handle: default
+hasUrls: true
+language: en
+name: halophile.science
+primary: true
+siteGroup: fc05c3c3-c0ef-4b30-921d-47a30f4529fb # halophile.science
+sortOrder: 1

@@ -1,0 +1,10 @@
+columnSuffix: null
+handle: email
+instructions: 'Email address users should message for inquiries'
+name: Email
+searchable: false
+settings:
+  placeholder: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Email

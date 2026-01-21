@@ -1,0 +1,79 @@
+
+{% set pageTitle = pageTitle ?? 'halophile.science' %}
+{% set pageDescription = pageDescription ?? '' %}
+{# {% set metaImage = metaImage is defined and metaImage ? 'img/site/' ~ metaImage : 'img/site/meta/home.png' %} #}
+
+{% set version = 0.01 %}
+
+{% set slug = craft.app.request.segments|length > 0 ? craft.app.request.segments|last : '' %}
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta
+		name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0, user-scalable=1">
+
+		{# Base URL for relative links - dynamically includes port for local development #}
+		<base
+		href="{{ craft.app.request.hostInfo }}/">
+
+		{# Page title and basic meta #}
+		<title>{{ pageTitle }}</title>
+		<meta name="description" content="{{ pageDescription }}">
+		<link
+		rel="canonical" href="{{ craft.app.request.absoluteUrl }}">
+
+		{# Schema.org meta tags #}
+		<meta itemprop="name" content="{{ pageTitle }}">
+		<meta itemprop="description" content="{{ pageDescription }}">
+		{% if metaImage %}<meta itemprop="image" content="{{ metaImage }}">
+		{% endif %}
+
+		{# Open Graph meta tags #}
+		<meta property="og:url" content="{{ craft.app.request.absoluteUrl }}">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="{{ pageTitle }}">
+		<meta property="og:description" content="{{ pageDescription }}">
+		{% if metaImage %}<meta property="og:image" content="{{ metaImage }}">
+		{% endif %}
+
+		{# Twitter Card meta tags #}
+		<meta name="twitter:card" content="summary_large_image">
+		<meta name="twitter:title" content="{{ pageTitle }}">
+		<meta name="twitter:description" content="{{ pageDescription }}">
+		{% if metaImage %}<meta name="twitter:image" content="{{ metaImage }}">
+		{% endif %}
+
+		{# External JavaScript libraries #}
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+		{# Local JavaScript files #}
+		<script src="{{ alias('@web') }}/js/code.js?v={{version}}"></script>
+
+		{# Favicon - uncomment and add path when available #}
+		<link
+		rel="icon" type="image/png" sizes="64x64" href="./images/favicon.gif">
+
+		{# Stylesheets #}
+		<link
+		rel="stylesheet" href="{{ alias('@web') }}/css/style.css?v={{version}}">
+	</head>
+
+	<body id="page--{{slug}}">
+
+		<nav>
+            <a href="./">halophile.science</a>
+            <a href="portfolio">portfolio</a>
+            <a href="inquire">inquire</a>
+        </nav>
+
+		<main>
+			{% block content %}{% endblock %}
+		</main>
+
+		<footer></footer>
+
+	</body>
+</html>

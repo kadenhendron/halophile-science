@@ -1,0 +1,15 @@
+columnSuffix: null
+handle: date
+instructions: 'Select a date (day of month will be ignored, only month and year shown)'
+name: Date
+searchable: false
+settings:
+  max: null
+  min: null
+  minuteIncrement: 30
+  showDate: true
+  showTime: false
+  showTimeZone: false
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Date

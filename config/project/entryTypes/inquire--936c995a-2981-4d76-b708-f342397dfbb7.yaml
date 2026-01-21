@@ -1,0 +1,74 @@
+color: null
+description: null
+fieldLayouts:
+  320e0a78-f306-4fed-9ddb-972a73b2a225:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2026-01-21T00:53:53+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 6d12e4f6-3ac8-4685-ac99-bf9294ad6727 # Paragraphs
+            handle: inquireText
+            includeInCards: false
+            instructions: null
+            label: 'Inquire Text'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 47eefdf4-70df-4683-aa9d-fce797744d7d
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-01-21T00:53:53+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 8a90d9be-2ce1-480b-8ed5-3454448fcd97 # Email
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ad3fd303-bc67-47b6-b690-305a1964af9e
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-01-21T00:55:25+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 6d12e4f6-3ac8-4685-ac99-bf9294ad6727 # Paragraphs
+            handle: infoText
+            includeInCards: false
+            instructions: null
+            label: 'Info Text'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 9477b932-7516-4a83-bdec-a441752e397d
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: ffefc904-5588-4c48-9ef1-52c97fed5f98
+        userCondition: null
+handle: inquire
+hasTitleField: false
+icon: null
+name: Inquire
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

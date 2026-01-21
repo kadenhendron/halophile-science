@@ -1,0 +1,70 @@
+dateModified: 1768956952
+elementSources:
+  craft\elements\Entry:
+    -
+      defaultSort:
+        - postDate
+        - desc
+      defaultViewMode: ''
+      disabled: false
+      key: '*'
+      tableAttributes:
+        - status
+        - section
+        - postDate
+        - expiryDate
+        - link
+      type: native
+    -
+      defaultSort:
+        - title
+        - asc
+      defaultViewMode: ''
+      disabled: false
+      key: singles
+      tableAttributes:
+        - status
+        - link
+      type: native
+    -
+      defaultSort:
+        - structure
+        - asc
+      defaultViewMode: ''
+      disabled: false
+      key: 'section:11840035-4d14-4256-98f8-92277616b0d6' # Portfolio
+      tableAttributes:
+        - 'field:9d860738-86c9-428f-9e65-92d65e552e73' # Date
+        - 'field:d9925737-1ce3-46db-ab51-943d0d432d6a' # Materials
+        - status
+      type: native
+email:
+  fromEmail: kadenhendron@gmail.com
+  fromName: halophile.science
+  transportType: craft\mail\transportadapters\Sendmail
+meta:
+  __names__:
+    2faae296-354e-4a1f-8422-219648d70c4d: 'Portfolio Piece' # Portfolio Piece
+    4b9b89e7-a505-4b83-ab72-1ff39f63c8bf: halophile.science # halophile.science
+    6d12e4f6-3ac8-4685-ac99-bf9294ad6727: Paragraphs # Paragraphs
+    8a90d9be-2ce1-480b-8ed5-3454448fcd97: Email # Email
+    9d860738-86c9-428f-9e65-92d65e552e73: Date # Date
+    936c995a-2981-4d76-b708-f342397dfbb7: Inquire # Inquire
+    753212f1-1bdc-40de-93c3-6deed6911b5e: Info # Info
+    843584ed-5237-4136-827c-ee49fe48db25: Inquire # Inquire
+    11840035-4d14-4256-98f8-92277616b0d6: Portfolio # Portfolio
+    d9925737-1ce3-46db-ab51-943d0d432d6a: Materials # Materials
+    fc05c3c3-c0ef-4b30-921d-47a30f4529fb: halophile.science # halophile.science
+system:
+  edition: solo
+  live: true
+  name: halophile.science
+  schemaVersion: 5.8.0.3
+  timeZone: America/Los_Angeles
+users:
+  allowPublicRegistration: false
+  defaultGroup: null
+  photoSubpath: null
+  photoVolumeUid: null
+  require2fa: false
+  requireEmailVerification: true
