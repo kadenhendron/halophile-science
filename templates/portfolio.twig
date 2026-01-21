@@ -1,0 +1,28 @@
+{% set pageTitle = "portfolio | halophile.science" %}
+{% set pageDescription = "" %}
+{% set metaImage = "" %}
+
+{% extends "_layout.twig" %}
+
+{% block content %}
+
+	<section id="portfolio__content">
+		{% set portfolioEntries = craft.entries.section('portfolio').all() %}
+
+		{% for entry in portfolioEntries %}
+			<div class="portfolio__item">
+
+                {# <div class="portfolio__image"></div> #}
+				{% if entry.photos %}
+					<img src="{{ entry.photos.one().getUrl() }}" alt="{{ entry.title }}">
+				{% endif %}
+				<h2>{{ entry.title }}</h2>
+				<p>{{ entry.date|date('F Y') }}</p>
+                
+				<p>{{ entry.materials }}</p>
+			</div>
+		{% endfor %}
+	</section>
+
+
+{% endblock %}

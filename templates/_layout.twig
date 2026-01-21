@@ -64,9 +64,10 @@
 	<body id="page--{{slug}}">
 
 		<nav>
-            <a href="./">halophile.science</a>
-            <a href="portfolio">portfolio</a>
-            <a href="inquire">inquire</a>
+            <a href="./" class="{% if slug == '' %} active{% endif %}">halophile.science</a>
+            <a href="shop" class="{% if slug == 'shop' %} active{% endif %}">shop</a>
+            <a href="portfolio" class="{% if slug == 'portfolio' %} active{% endif %}">portfolio</a>
+            <a href="inquire" class="{% if slug == 'inquire' %} active{% endif %}">inquire</a>
         </nav>
 
 		<main>

@@ -1,3 +1,233 @@
+@use "reset";
+
+//Fonts
+@import url("https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap");
+
+$red: #c1272d;
+$beige: #ece6d0;
+$black: #222;
+
+$p: 20px;
+
+@mixin mobile {
+	@media (max-width: 959px) {
+		@content;
+	}
+}
+@mixin non-mobile {
+	@media (min-width: 960px) {
+		@content;
+	}
+}
+
+::selection {
+	background: $red;
+	color: $beige;
+}
+
+//----------------------
+// Mixins
+//----------------------
+
+@mixin no-select {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+@mixin mono {
+	font-family: "Syne Mono", monospace;
+	font-weight: 400;
+	font-style: normal;
+}
+
 html {
-    background-color: #ECE6D0;
+	background-color: $beige;
+	@include mono;
+	font-size: $p;
+	color: $black;
+}
+
+a {
+	color: $black;
+}
+
+//Nav
+
+nav {
+	box-sizing: border-box;
+	padding: 2em;
+	padding-bottom: 0;
+	width: 100%;
+	position: fixed;
+	display: flex;
+	justify-content: space-between;
+	gap: 2em;
+
+	a {
+		border: 2px solid $red;
+		text-decoration: none;
+		padding: 0.3em 0.6em;
+		position: relative;
+		border-style: dashed;
+
+		@include no-select;
+
+		&::before {
+			content: "";
+			position: absolute;
+			height: 2em;
+			top: -2em;
+			left: 50%;
+			border-right: 2px solid $red;
+			border-style: dashed;
+			border-left: none;
+			border-top: none;
+			border-bottom: none;
+		}
+
+		&.active {
+			pointer-events: none;
+			border-style: solid;
+
+			&::before {
+				border-style: solid;
+				border-left: none;
+				border-top: none;
+				border-bottom: none;
+			}
+		}
+	}
+}
+
+//Home Page
+
+#home__graphic {
+	position: fixed;
+	top: 51vh;
+	left: 49vw;
+	width: Min(90vw, 135vh);
+	aspect-ratio: 3/2;
+	transform: translate(-50%, -50%);
+	z-index: -1;
+    background-image: url('../img/home-background.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#home__dish {
+	position: absolute;
+	top: 52.5%;
+	left: 50%;
+	width: 60%;
+	aspect-ratio: 1;
+	// background-image: url('../img/petri-dish.png');
+	transform: translate(-50%, -50%);
+	background-color: #f6f3d0;
+	border-radius: 50%;
+	border: 2px solid $black;
+	z-index: 1;
+}
+
+//Inquire
+
+$dish-size: 50vw;
+
+#inquire__content {
+	min-height: 100vh;
+	width: 50%;
+	max-width: 40em;
+	margin: 0 auto;
+	box-sizing: border-box;
+	padding: 8em 2em;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+	h1 {
+		margin-bottom: 1em;
+		margin-top: 6em;
+
+		&:first-child {
+			margin-top: 0;
+		}
+	}
+
+	p {
+		margin-bottom: 1em;
+	}
+
+	a {
+		text-decoration: underline;
+		text-underline-offset: 0.1em;
+	}
+}
+
+#inquire__dish--1,
+#inquire__dish--2 {
+	position: fixed;
+	top: 50vh;
+	transform: translate(-50%, -50%);
+	width: $dish-size;
+    max-width: 80vh;
+	aspect-ratio: 1;
+	object-fit: contain;
+	z-index: -1;
+
+	outline: 6px solid $black;
+	border-radius: 50%;
+	outline-offset: -2px;
+}
+
+#inquire__dish--1 {
+	left: 0;
+}
+
+#inquire__dish--2 {
+	left: 100%;
+}
+
+//Shop
+
+#shop__content {
+	min-height: 100vh;
+	width: 50%;
+	max-width: 40em;
+	margin: 0 auto;
+	box-sizing: border-box;
+	padding: 8em 2em;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+	p {
+		margin-bottom: 1em;
+	}
+}
+
+
+//Portfolio
+
+#portfolio__content {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	gap: 1.5em;
+
+	padding: 8em 2em 2em;
+}
+
+.portfolio__item {
+	img {
+		width: 100%;
+		aspect-ratio: 1;
+        object-fit: cover;
+        object-position: center;
+		border: 2px solid $black;
+
+        cursor: pointer;
+	}
 }

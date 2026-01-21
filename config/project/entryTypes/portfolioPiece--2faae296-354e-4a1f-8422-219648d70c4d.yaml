@@ -8,6 +8,23 @@ fieldLayouts:
         elementCondition: null
         elements:
           -
+            dateAdded: '2026-01-21T02:23:34+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: f5c2dd32-dde2-41be-bc95-6ef40c9200b1 # Photos
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b0bfafa3-047f-457a-aa79-0f455c24b5d3
+            userCondition: null
+            warning: null
+            width: 100
+          -
             autocapitalize: true
             autocomplete: false
             autocorrect: true

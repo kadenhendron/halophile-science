@@ -1,4 +1,4 @@
-dateModified: 1768956952
+dateModified: 1768962299
 elementSources:
   craft\elements\Entry:
     -
@@ -34,6 +34,7 @@ elementSources:
       disabled: false
       key: 'section:11840035-4d14-4256-98f8-92277616b0d6' # Portfolio
       tableAttributes:
+        - 'field:f5c2dd32-dde2-41be-bc95-6ef40c9200b1' # Photos
         - 'field:9d860738-86c9-428f-9e65-92d65e552e73' # Date
         - 'field:d9925737-1ce3-46db-ab51-943d0d432d6a' # Materials
         - status
@@ -42,8 +43,24 @@ email:
   fromEmail: kadenhendron@gmail.com
   fromName: halophile.science
   transportType: craft\mail\transportadapters\Sendmail
+fs:
+  assets:
+    hasUrls: true
+    name: Assets
+    settings:
+      path: assets
+    type: craft\fs\Local
+    url: /assets
+  transforms:
+    hasUrls: true
+    name: Transforms
+    settings:
+      path: assets/transforms
+    type: craft\fs\Local
+    url: /assets/transforms
 meta:
   __names__:
+    0e46e6a6-fe20-445c-b137-1cb5d794a4b9: Photos # Photos
     2faae296-354e-4a1f-8422-219648d70c4d: 'Portfolio Piece' # Portfolio Piece
     4b9b89e7-a505-4b83-ab72-1ff39f63c8bf: halophile.science # halophile.science
     6d12e4f6-3ac8-4685-ac99-bf9294ad6727: Paragraphs # Paragraphs
@@ -54,6 +71,7 @@ meta:
     843584ed-5237-4136-827c-ee49fe48db25: Inquire # Inquire
     11840035-4d14-4256-98f8-92277616b0d6: Portfolio # Portfolio
     d9925737-1ce3-46db-ab51-943d0d432d6a: Materials # Materials
+    f5c2dd32-dde2-41be-bc95-6ef40c9200b1: Photos # Photos
     fc05c3c3-c0ef-4b30-921d-47a30f4529fb: halophile.science # halophile.science
 system:
   edition: solo
