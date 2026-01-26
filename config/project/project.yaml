@@ -1,4 +1,4 @@
-dateModified: 1769046916
+dateModified: 1769471856
 elementSources:
   craft\elements\Entry:
     -
@@ -70,6 +70,7 @@ meta:
     753212f1-1bdc-40de-93c3-6deed6911b5e: Info # Info
     843584ed-5237-4136-827c-ee49fe48db25: Inquire # Inquire
     11840035-4d14-4256-98f8-92277616b0d6: Portfolio # Portfolio
+    b2ac8a68-d505-4592-a09a-550bdc8cd953: 'Square Grid Thumbnail' # Square Grid Thumbnail
     d9925737-1ce3-46db-ab51-943d0d432d6a: Materials # Materials
     f5c2dd32-dde2-41be-bc95-6ef40c9200b1: Photos # Photos
     fc05c3c3-c0ef-4b30-921d-47a30f4529fb: halophile.science # halophile.science
