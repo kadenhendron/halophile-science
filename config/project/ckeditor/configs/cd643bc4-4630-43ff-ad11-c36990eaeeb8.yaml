@@ -1,0 +1,9 @@
+headingLevels: false
+name: 'Single Line Rich Text'
+toolbar:
+  - italic
+  - bold
+  - underline
+  - strikethrough
+  - subscript
+  - superscript
