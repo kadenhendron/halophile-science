@@ -40,8 +40,12 @@ $(document).ready(function () {
 		var image_src = $image.attr("data-src");
 
 		var img = new Image();
-		img.src = image_src;
-		img.onload = function () {
+		var hasProcessed = false;
+		
+		function processLightbox() {
+			if (hasProcessed) return;
+			hasProcessed = true;
+			
 			var image_title = photoData.title;
 			var image_date = photoData.date;
 			var image_material = photoData.material;
@@ -141,7 +145,18 @@ $(document).ready(function () {
 			dragDistanceY = 0;
 			accumulatedDragDistanceX = 0;
 			accumulatedDragDistanceY = 0;
+		}
+		
+		img.onload = function () {
+			processLightbox();
 		};
+		
+		// Proceed after 250ms even if image hasn't loaded
+		setTimeout(function() {
+			processLightbox();
+		}, 250);
+		
+		img.src = image_src;
 	}
 
 	//Open Lightbox
