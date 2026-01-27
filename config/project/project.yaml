@@ -1,4 +1,4 @@
-dateModified: 1769473174
+dateModified: 1769473759
 elementSources:
   craft\elements\Entry:
     -
@@ -66,15 +66,11 @@ meta:
     6d12e4f6-3ac8-4685-ac99-bf9294ad6727: Paragraphs # Paragraphs
     8a90d9be-2ce1-480b-8ed5-3454448fcd97: Email # Email
     9d860738-86c9-428f-9e65-92d65e552e73: Date # Date
-    0847cae1-7329-4bb0-a8c1-951e91ee0c08: 'Public Schema' # Public Schema
     936c995a-2981-4d76-b708-f342397dfbb7: Inquire # Inquire
     753212f1-1bdc-40de-93c3-6deed6911b5e: Info # Info
     843584ed-5237-4136-827c-ee49fe48db25: Inquire # Inquire
     11840035-4d14-4256-98f8-92277616b0d6: Portfolio # Portfolio
-    ab881650-4ffc-4785-94f6-7980dd17014b: Simple # Simple
     b2ac8a68-d505-4592-a09a-550bdc8cd953: 'Square Grid Thumbnail' # Square Grid Thumbnail
-    c96cd3bc-8609-4a8d-bb39-b06a121f5976: 'Single Line Rich Text' # Single Line Rich Text
-    cd643bc4-4630-43ff-ad11-c36990eaeeb8: 'Single Line Rich Text' # Single Line Rich Text
     d9925737-1ce3-46db-ab51-943d0d432d6a: Materials # Materials
     f5c2dd32-dde2-41be-bc95-6ef40c9200b1: Photos # Photos
     fc05c3c3-c0ef-4b30-921d-47a30f4529fb: halophile.science # halophile.science
