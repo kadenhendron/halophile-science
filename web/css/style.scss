@@ -113,10 +113,10 @@ nav {
 	aspect-ratio: 3/2;
 	transform: translate(-50%, -50%);
 	z-index: -1;
-    background-image: url('../img/home-background.png');
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
+	background-image: url("../img/home-background.png");
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
 }
 
 #home__dish {
@@ -173,7 +173,7 @@ $dish-size: 50vw;
 	top: 50vh;
 	transform: translate(-50%, -50%);
 	width: $dish-size;
-    max-width: 80vh;
+	max-width: 80vh;
 	aspect-ratio: 1;
 	object-fit: contain;
 	z-index: -1;
@@ -209,7 +209,6 @@ $dish-size: 50vw;
 	}
 }
 
-
 //Portfolio
 
 #portfolio__content {
@@ -224,10 +223,15 @@ $dish-size: 50vw;
 	img {
 		width: 100%;
 		aspect-ratio: 1;
-        object-fit: cover;
-        object-position: center;
+		object-fit: cover;
+		object-position: center;
 		border: 2px solid $black;
+		@include no-select;
 
-        cursor: pointer;
+		cursor: pointer;
 	}
+}
+
+.portfolio__item__date {
+	text-transform: lowercase;
 }
