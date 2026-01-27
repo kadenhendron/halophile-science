@@ -14,9 +14,9 @@
 
                 {# <div class="portfolio__image"></div> #}
 				{% if entry.photos %}
-					<img src="{{ entry.photos.one().getUrl('squareGridThumbnail') }}" alt="{{ entry.title }}">
+					<img src="{{ entry.photos.one().getUrl('squareGridThumbnail') }}" alt="{{ entry.portfolioItemTitle }}">
 				{% endif %}
-				<h2 class="portfolio__item__title">{{ entry.title }}</h2>
+				<h2 class="portfolio__item__title">{{ entry.portfolioItemTitle }}</h2>
 				<p class="portfolio__item__date">{{ entry.date|date('F Y') }}</p>
                 
 				<p class="portfolio__item__material">{{ entry.materials }}</p>
