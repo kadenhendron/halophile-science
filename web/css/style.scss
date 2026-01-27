@@ -335,6 +335,7 @@ $dish-size: 50vw;
 	display: block;
 	width: 100%;
 	height: auto;
+	border: 2px solid $black;
 
 	&.zoomable {
 		cursor: zoom-in;
@@ -365,8 +366,8 @@ $dish-size: 50vw;
 	right: 0;
 	bottom: 0;
 	max-width: 50%;
-	border-top: 2px solid $red;
-	border-left: 2px solid $red;
+	border-top: 2px solid $black;
+	border-left: 2px solid $black;
 }
 
 #lightbox__date {
