@@ -10,22 +10,29 @@
 		{% set portfolioEntries = craft.entries.section('portfolio').all() %}
 
 		{% for entry in portfolioEntries %}
-			<div class="portfolio__item">
+			<div class="portfolio__item lightbox-trigger">
 
-                {# <div class="portfolio__image"></div> #}
 				{% if entry.photos %}
+					<div class="lightbox-photos">
+						{% for photo in entry.photos.all() %}
+							<div data-src="{{ photo.getUrl() }}" data-width="{{ photo.width }}" data-height="{{ photo.height }}"></div>
+						{% endfor %}
+					</div>
+
+					{# Thumbnail #}
 					{% set titleNoHTML = entry.portfolioItemTitle|striptags %}
 					<img src="{{ entry.photos.one().getUrl('squareGridThumbnail') }}" alt="{{ titleNoHTML }}">
 				{% endif %}
 
-				{% set title = entry.portfolioItemTitle|replace({'<p>': '', '</p>': ''}) %}	{# remove <p> tags from title #}
-				<h2 class="portfolio__item__title">{{ title|raw }}</h2>
-				<div class="portfolio__item__date">{{ entry.date|date('F Y') }}</div>
-                
-				<div class="portfolio__item__material">{{ entry.materials }}</div>
+				{# Title and info #}
+				{% set title = entry.portfolioItemTitle|replace({'<p>': '', '</p>': ''}) %}
+				<h2 class="portfolio__item__title lightbox-title">{{ title|raw }}</h2>
+				<div class="portfolio__item__date lightbox-date">{{ entry.date|date('F Y') }}</div>
+				<div class="portfolio__item__material lightbox-material">{{ entry.materials }}</div>
 			</div>
 		{% endfor %}
 	</section>
 
+	{% include '_lightbox.twig' %}
 
 {% endblock %}

@@ -86,6 +86,6 @@ showSlugField: true
 showStatusField: true
 slugTranslationKeyFormat: null
 slugTranslationMethod: site
-titleFormat: '{portfolioItemTitle}'
+titleFormat: '{portfolioItemTitle|striptags}'
 titleTranslationKeyFormat: null
 titleTranslationMethod: site

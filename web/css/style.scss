@@ -269,10 +269,158 @@ $dish-size: 50vw;
 		border: 2px solid $black;
 		@include no-select;
 
-		cursor: pointer;
+		cursor: zoom-in;
 	}
+}
+
+.lightbox-photos {
+	display: none;
 }
 
 .portfolio__item__date {
 	text-transform: lowercase;
+}
+
+//Lightbox
+
+//-----------------
+// Lightbox
+//-----------------
+
+#lightbox {
+	position: fixed; /* keeps the lightbox window in the current viewport */
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	// background-color:rgba(245,245,245,0.5);
+	z-index: 150;
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 0.2s ease-in-out;
+}
+
+#lightbox.visible {
+	opacity: 1;
+	pointer-events: all;
+}
+
+#lightbox__background {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: $beige;
+}
+
+#lightbox__image-container {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translateX(-50%) translateY(-50%);
+}
+
+#lightbox__image-zoom-container {
+	transform: scale(1);
+	transition: 0.2s transform ease-in-out;
+
+	&.resetting {
+		transition: none;
+	}
+}
+
+#lightbox__image {
+	position: relative;
+	display: block;
+	width: 100%;
+	height: auto;
+
+	&.zoomable {
+		cursor: zoom-in;
+	}
+
+	&.zoomed {
+		cursor: zoom-out;
+	}
+
+	&.draggable {
+		cursor: move;
+	}
+
+	&.zooming-out {
+		transition: 0.2s transform ease-in-out;
+	}
+}
+
+#lightbox__info {
+	// background-color: ;
+	box-sizing: border-box;
+	padding: 24px 30px;
+	text-align: left;
+	font-weight: 300;
+	font-size: 16px;
+	display: flex;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	max-width: 50%;
+	border-top: 2px solid $red;
+	border-left: 2px solid $red;
+}
+
+#lightbox__date {
+	text-transform: lowercase;
+}
+
+#lightbox__caption {
+	// display: flex;
+	min-width: 25vw;
+	margin-right: 60px;
+}
+
+#lightbox__caption span {
+	display: inline-block;
+	margin-right: 20px;
+	white-space: nowrap;
+}
+
+// #lightbox__caption span:last-child {
+// 	margin-right: 0px;
+// }
+
+#lightbox__title {
+	font-weight: 400;
+}
+
+#lightbox__controls {
+	@include no-select;
+	// float: right;
+	position: relative;
+	top: 2px;
+	display: flex;
+	align-self: flex-end;
+
+	img {
+		width: auto;
+		height: 18px;
+		cursor: pointer;
+		margin-right: 6px;
+		display: block;
+
+		&:last-of-type {
+			margin-right: 0;
+		}
+	}
+
+	&.close-only {
+		#lightbox__next,
+		#lightbox__back {
+			display: none;
+		}
+
+		#lightbox__close {
+			margin-right: 0;
+		}
+	}
 }
