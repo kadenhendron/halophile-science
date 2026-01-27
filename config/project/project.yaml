@@ -1,4 +1,4 @@
-dateModified: 1769476493
+dateModified: 1769477267
 elementSources:
   craft\elements\Entry:
     -
@@ -76,6 +76,7 @@ meta:
     c96cd3bc-8609-4a8d-bb39-b06a121f5976: 'Single Line Rich Text' # Single Line Rich Text
     cd643bc4-4630-43ff-ad11-c36990eaeeb8: 'Single Line Rich Text' # Single Line Rich Text
     d9925737-1ce3-46db-ab51-943d0d432d6a: Materials # Materials
+    e0c2f258-ecd6-495f-811c-e3dac92a96d4: 'Lightbox Photo' # Lightbox Photo
     f5c2dd32-dde2-41be-bc95-6ef40c9200b1: Photos # Photos
     fc05c3c3-c0ef-4b30-921d-47a30f4529fb: halophile.science # halophile.science
 plugins:

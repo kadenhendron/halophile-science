@@ -1,0 +1,11 @@
+fill: null
+format: jpg
+handle: lightboxPhoto
+height: 2000
+interlace: none
+mode: fit
+name: 'Lightbox Photo'
+position: center-center
+quality: 70
+upscale: false
+width: 2000

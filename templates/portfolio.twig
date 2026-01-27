@@ -15,7 +15,7 @@
 				{% if entry.photos %}
 					<div class="lightbox-photos">
 						{% for photo in entry.photos.all() %}
-							<div data-src="{{ photo.getUrl() }}" data-width="{{ photo.width }}" data-height="{{ photo.height }}"></div>
+							<div data-src="{{ photo.getUrl('lightboxPhoto') }}" data-width="{{ photo.width }}" data-height="{{ photo.height }}"></div>
 						{% endfor %}
 					</div>
 
