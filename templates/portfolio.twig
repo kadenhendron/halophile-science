@@ -20,9 +20,9 @@
 
 				{% set title = entry.portfolioItemTitle|replace({'<p>': '', '</p>': ''}) %}	{# remove <p> tags from title #}
 				<h2 class="portfolio__item__title">{{ title|raw }}</h2>
-				<p class="portfolio__item__date">{{ entry.date|date('F Y') }}</p>
+				<div class="portfolio__item__date">{{ entry.date|date('F Y') }}</div>
                 
-				<p class="portfolio__item__material">{{ entry.materials }}</p>
+				<div class="portfolio__item__material">{{ entry.materials }}</div>
 			</div>
 		{% endfor %}
 	</section>
