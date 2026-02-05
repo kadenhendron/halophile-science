@@ -1,0 +1,12 @@
+columnSuffix: null
+handle: available
+instructions: 'Shows an "Available" label on portfolio'
+name: Available
+searchable: false
+settings:
+  default: false
+  offLabel: null
+  onLabel: Available
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Lightswitch

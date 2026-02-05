@@ -10,8 +10,9 @@
 		{% set portfolioEntries = craft.entries.section('portfolio').all() %}
 
 		{% for entry in portfolioEntries %}
-			<div class="portfolio__item lightbox-trigger">
+			<div class="portfolio__item">
 
+				<div class="lightbox-trigger">
 				{% if entry.photos %}
 					<div class="lightbox-photos">
 						{% for photo in entry.photos.all() %}
@@ -23,12 +24,24 @@
 					{% set titleNoHTML = entry.portfolioItemTitle|striptags %}
 					<img src="{{ entry.photos.one().getUrl('squareGridThumbnail') }}" alt="{{ titleNoHTML }}">
 				{% endif %}
+				</div>
 
 				{# Title and info #}
 				{% set title = entry.portfolioItemTitle|replace({'<p>': '', '</p>': ''}) %}
-				<h2 class="portfolio__item__title lightbox-title">{{ title|raw }}</h2>
-				<div class="portfolio__item__date lightbox-date">{{ entry.date|date('F Y') }}</div>
-				<div class="portfolio__item__material lightbox-material">{{ entry.materials }}</div>
+
+				<div class="portfolio__item__text">
+					<h2 class="portfolio__item__title lightbox-title">
+						{{ title|raw }}
+
+						{% if entry.available %}
+							<a class="portfolio__item__available" href="inquire">available</a>
+						{% endif %}
+					</h2>
+					<div class="portfolio__item__date lightbox-date">{{ entry.date|date('F Y') }}</div>
+					<div class="portfolio__item__material lightbox-material">{{ entry.materials }}</div>
+
+
+				</div>
 			</div>
 		{% endfor %}
 	</section>
