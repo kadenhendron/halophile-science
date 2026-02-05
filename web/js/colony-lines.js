@@ -166,9 +166,10 @@
             const afterWidthPx = afterWidths[index] * fontSize - 2;
             
             // Start at the end of the ::after line (right edge + after width)
+            // Add scroll offsets to convert viewport coords to page coords
             return {
-                x: rect.right + afterWidthPx,
-                y: rect.top + rect.height / 2
+                x: rect.right + afterWidthPx + window.scrollX,
+                y: rect.top + rect.height / 2 + window.scrollY
             };
         }
         
@@ -177,15 +178,17 @@
         
         if (index === 0 || index === 1) {
             // Top nav items → center of bottom edge
+            // Add scroll offsets to convert viewport coords to page coords
             return {
-                x: rect.left + rect.width / 2,
-                y: rect.bottom
+                x: rect.left + rect.width / 2 + window.scrollX,
+                y: rect.bottom + window.scrollY
             };
         } else {
             // Bottom nav items → center of top edge
+            // Add scroll offsets to convert viewport coords to page coords
             return {
-                x: rect.left + rect.width / 2,
-                y: rect.top
+                x: rect.left + rect.width / 2 + window.scrollX,
+                y: rect.top + window.scrollY
             };
         }
     }
@@ -220,11 +223,15 @@
         
         if (isMobile) {
             // Check if colony is within the viewport
-            const viewportWidth = window.innerWidth;
-            const viewportHeight = window.innerHeight;
+            // Colony coordinates are now page-relative, so check against scroll position
+            const viewportLeft = window.scrollX;
+            const viewportRight = window.scrollX + window.innerWidth;
+            const viewportTop = window.scrollY;
+            const viewportBottom = window.scrollY + window.innerHeight;
             
             // Colony must be on screen
-            if (colony.x < 0 || colony.x > viewportWidth || colony.y < 0 || colony.y > viewportHeight) {
+            if (colony.x < viewportLeft || colony.x > viewportRight || 
+                colony.y < viewportTop || colony.y > viewportBottom) {
                 return false;
             }
             
@@ -370,16 +377,18 @@
         
         // Check if colonies are exposed on window
         if (window.bacteriaColonies && window.bacteriaColonies.length > 0) {
+            // Add scroll offsets to convert viewport coords to page coords
             return window.bacteriaColonies.map(colony => ({
-                x: canvasRect.left + colony.x,
-                y: canvasRect.top + colony.y
+                x: canvasRect.left + colony.x + window.scrollX,
+                y: canvasRect.top + colony.y + window.scrollY
             }));
         }
         
         // Fallback: calculate approximate positions
         // This is a placeholder - actual colony positions should come from bacteria.js
-        const centerX = canvasRect.left + canvasRect.width / 2;
-        const centerY = canvasRect.top + canvasRect.height / 2;
+        // Add scroll offsets to convert viewport coords to page coords
+        const centerX = canvasRect.left + canvasRect.width / 2 + window.scrollX;
+        const centerY = canvasRect.top + canvasRect.height / 2 + window.scrollY;
         const radius = canvasRect.width * 0.3;
         
         const positions = [];

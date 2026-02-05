@@ -49,6 +49,7 @@ html {
 	@include mono;
 	font-size: $p;
 	color: $black;
+	overflow-x: hidden;
 }
 
 body {
@@ -209,6 +210,7 @@ nav {
 
 //Mobile Home nav
 @include mobile {
+
 	#page--home nav {
 		a::after {
 			content: "";
@@ -311,7 +313,7 @@ nav {
 //Colony Lines
 
 #colony-lines-container {
-	position: fixed;
+	position: absolute;
 	top: 0;
 	left: 0;
 	width: 100%;

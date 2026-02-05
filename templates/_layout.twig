@@ -3,7 +3,7 @@
 {% set pageDescription = pageDescription ?? '' %}
 {# {% set metaImage = metaImage is defined and metaImage ? 'img/site/' ~ metaImage : 'img/site/meta/home.png' %} #}
 
-{% set version = 0.06 %}
+{% set version = 0.07 %}
 
 {% set slug = craft.app.request.segments|length > 0 ? craft.app.request.segments|last : 'home' %}
 
@@ -12,8 +12,8 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta
-		name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0, user-scalable=1">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale={% if slug == 'home' %}1{% else %}3.0{% endif %}, minimum-scale=1.0, user-scalable=1">
 
 		{# Base URL for relative links - dynamically includes port for local development #}
 		<base
