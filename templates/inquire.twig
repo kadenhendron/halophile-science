@@ -8,9 +8,6 @@
 
 {% block content %}
 
-    <img id="inquire__dish--1" src="img/inquire-dish-1.png"></div>
-    <img id="inquire__dish--2" src="img/inquire-dish-2.png"></div>
-
 	<section id="inquire__content">
 		<h1>inquire</h1>
 		{% set inquire = craft.entries.section('inquire').one() %}
@@ -21,5 +18,8 @@
 		<h1>info</h1>
 		<p>{{ inquire.infoText|nl2br }}</p>
 	</section>
+
+    <img id="inquire__dish--1" src="img/inquire-dish-1.png"></div>
+    <img id="inquire__dish--2" src="img/inquire-dish-2.png"></div>
 
 {% endblock %}

@@ -51,6 +51,10 @@ html {
 	color: $black;
 }
 
+body {
+	position: relative;
+}
+
 a {
 	color: $black;
 }
@@ -103,10 +107,19 @@ nav {
 	padding: 2em;
 	padding-bottom: 0;
 	width: 100%;
-	position: fixed;
+	// position: fixed;
+	position: absolute;
 	display: flex;
 	justify-content: space-between;
 	gap: 2em;
+
+	@include mobile {
+		flex-direction: column;
+		position: static;
+		gap: 1em;
+		padding: 1em;
+		display: flex;
+	}
 
 	a {
 		border: 2px solid $red;
@@ -114,6 +127,10 @@ nav {
 		padding: 0.3em 0.6em;
 		position: relative;
 		border-style: dashed;
+
+		@include mobile {
+			width: fit-content;
+		}
 
 		@include no-select;
 
@@ -128,6 +145,10 @@ nav {
 			border-left: none;
 			border-top: none;
 			border-bottom: none;
+
+			@include mobile {
+				display: none;
+			}
 		}
 
 		&.active {
@@ -147,7 +168,7 @@ nav {
 //Home Page
 
 #home__graphic {
-	position: fixed;
+	position: relative;
 	top: 51vh;
 	left: 49vw;
 	width: Min(90vw, 135vh);
@@ -158,6 +179,14 @@ nav {
 	background-size: contain;
 	background-position: center;
 	background-repeat: no-repeat;
+
+	@include mobile {
+		width: 175vw;
+		left: -5vw;
+		transform: none;
+		top: 0;
+		margin-top: 20vw;
+	}
 }
 
 #home__dish {
@@ -172,6 +201,12 @@ nav {
 	border-radius: 50%;
 	border: 2px solid $black;
 	z-index: 1;
+
+	@include mobile {
+		width: 50%;
+		top: 48%;
+		left: 45%;
+	}
 }
 
 //Inquire
@@ -188,6 +223,11 @@ $dish-size: 50vw;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+
+	@include mobile {
+		padding: 2em 1em;
+		width: unset;
+	}
 
 	h1 {
 		margin-bottom: 1em;
@@ -218,10 +258,33 @@ $dish-size: 50vw;
 	aspect-ratio: 1;
 	object-fit: contain;
 	z-index: -1;
+	display: block;
 
 	outline: 6px solid $black;
 	border-radius: 50%;
 	outline-offset: -2px;
+
+	@include mobile {
+		position: static;
+		transform: none;
+		max-width: unset;
+		width: 90%;
+		width: calc(100% - 2em);
+		margin: 0 auto;
+		aspect-ratio: 2;
+		object-fit: cover;
+		object-position: top;
+		border-radius: 0;
+		border-top-left-radius: 100vw;
+		border-top-right-radius: 100vw;
+		// border-bottom: none;
+		// outline: 3px solid $black;
+		outline: 3px solid $black;
+		// outline-offset: -4px;
+		// border-top: 3px solid $black;
+		// border-right: 3px solid $black;
+		// border-left: 3px solid $black;
+	}
 }
 
 #inquire__dish--1 {
@@ -230,6 +293,10 @@ $dish-size: 50vw;
 
 #inquire__dish--2 {
 	left: 100%;
+
+	@include mobile {
+		display: none;
+	}
 }
 
 //Shop
@@ -245,6 +312,12 @@ $dish-size: 50vw;
 	flex-direction: column;
 	justify-content: center;
 
+	@include mobile {
+		padding: 2em 1em;
+		width: unset;
+		min-height: 20em;
+	}
+
 	p {
 		margin-bottom: 1em;
 	}
@@ -258,6 +331,13 @@ $dish-size: 50vw;
 	gap: 1.5em;
 
 	padding: 8em 2em 2em;
+
+	@include mobile {
+		padding: 1em 1em;
+		gap: 1em;
+		// width: unset;
+		// min-height: 20em;
+	}
 }
 
 .portfolio__item {
@@ -279,6 +359,24 @@ $dish-size: 50vw;
 
 .portfolio__item__date {
 	text-transform: lowercase;
+}
+
+.portfolio__item__text {
+	position: relative;
+}
+
+.portfolio__item__available {
+	color: $red;
+	text-transform: uppercase;
+	font-size: .8em;
+	letter-spacing: .05em;
+	text-decoration: none;
+	// font-weight: 500;
+	// position: absolute;
+	// top: 0;
+	// right: 0;
+	// transform-origin: top left;
+	// transform: rotate(90deg);
 }
 
 //Lightbox
