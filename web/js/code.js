@@ -3,7 +3,7 @@ $(document).ready(function () {
 	var allPhotos = [];
 	
 	$(".lightbox-trigger").each(function() {
-		var $trigger = $(this);
+		var $trigger = $(this).parent();
 		var title = $trigger.find(".lightbox-title").text();
 		var date = $trigger.find(".lightbox-date").text();
 		var material = $trigger.find(".lightbox-material").text();
