@@ -605,6 +605,10 @@ $dish-size: 50vw;
 	max-width: 50%;
 	border-top: 2px solid $black;
 	border-left: 2px solid $black;
+
+	@include mobile {
+		max-width: 90%;
+	}
 }
 
 #lightbox__date {
@@ -641,10 +645,14 @@ $dish-size: 50vw;
 
 	img {
 		width: auto;
-		height: 18px;
+		height: 20px;
 		cursor: pointer;
-		margin-right: 6px;
+		margin-right: 14px;
 		display: block;
+
+		@include mobile {
+			height: 30px;
+		}
 
 		&:last-of-type {
 			margin-right: 0;
