@@ -2,12 +2,17 @@
 
 //Fonts
 @import url("https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 $red: #c1272d;
 $beige: #ece6d0;
 $black: #222;
 
 $p: 20px;
+
+// $mono: "Syne Mono", monospace;
+$mono: "Courier Prime", monospace;
+
 
 @mixin mobile {
 	@media (max-width: 959px) {
@@ -39,7 +44,7 @@ $p: 20px;
 }
 
 @mixin mono {
-	font-family: "Syne Mono", monospace;
+	font-family: $mono;
 	font-weight: 400;
 	font-style: normal;
 }
@@ -125,7 +130,8 @@ nav {
 	a {
 		border: 2px solid $red;
 		text-decoration: none;
-		padding: 0.3em 0.6em;
+		// padding: 0.3em 0.6em;	//Syne Mono
+		padding: 0.4em 0.6em 0.3em;	//Courier Prime
 		position: relative;
 		border-style: dashed;
 
