@@ -3,9 +3,9 @@
 {% set pageDescription = pageDescription ?? '' %}
 {# {% set metaImage = metaImage is defined and metaImage ? 'img/site/' ~ metaImage : 'img/site/meta/home.png' %} #}
 
-{% set version = 0.05 %}
+{% set version = 0.06 %}
 
-{% set slug = craft.app.request.segments|length > 0 ? craft.app.request.segments|last : '' %}
+{% set slug = craft.app.request.segments|length > 0 ? craft.app.request.segments|last : 'home' %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -52,6 +52,7 @@
 		{# Local JavaScript files #}
 		<script src="{{ alias('@web') }}/js/code.js?v={{version}}"></script>
 		<script src="{{ alias('@web') }}/js/bacteria.js?v={{version}}"></script>
+		<script src="{{ alias('@web') }}/js/colony-lines.js?v={{version}}"></script>
 
 		{# Favicon - uncomment and add path when available #}
 		<link
@@ -65,9 +66,9 @@
 	<body id="page--{{slug}}">
 
 		<nav>
-            <a href="./" class="{% if slug == '' %} active{% endif %}">halophile.science</a>
-            <a href="shop" class="{% if slug == 'shop' %} active{% endif %}">shop</a>
+            <a href="./" class="{% if slug == 'home' %} active{% endif %}">halophile.science</a>
             <a href="portfolio" class="{% if slug == 'portfolio' %} active{% endif %}">portfolio</a>
+            <a href="shop" class="{% if slug == 'shop' %} active{% endif %}">shop</a>
             <a href="inquire" class="{% if slug == 'inquire' %} active{% endif %}">inquire</a>
         </nav>
 

@@ -79,7 +79,7 @@
 
         // Configuration
         const config = {
-            initialColonies: 3,
+            initialColonies: 1,
             minGrowthRate: 2, // min pixels to grow per frame
             maxGrowthRate: 5, // max pixels to grow per frame
             minMaxGenerations: 3, // minimum max generations for a colony
@@ -351,10 +351,22 @@
                     nextSpawnInterval = config.minSpawnInterval + Math.random() * (config.maxSpawnInterval - config.minSpawnInterval);
                 }
 
+                // Export colony positions to global scope for colony-lines.js
+                exportColonyPositions();
+
                 requestAnimationFrame(animate);
             }
 
             animate();
+        }
+
+        // Export colony positions for use by colony-lines.js
+        function exportColonyPositions() {
+            const canvasRect = canvas.getBoundingClientRect();
+            window.bacteriaColonies = colonies.map(colony => ({
+                x: colony.centerX,
+                y: colony.centerY
+            }));
         }
     }
 

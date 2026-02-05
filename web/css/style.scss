@@ -165,7 +165,105 @@ nav {
 	}
 }
 
+//Desktop nav
+@include non-mobile {
+	#page--home nav {
+		padding: 0;
+		width: 90vw;
+		height: 90vh;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		display: block;
+
+		a {
+			position: absolute;
+			border-style: solid;
+
+			&:nth-of-type(1) {
+				top: 0;
+				left: 0;
+			}
+
+			&:nth-of-type(2) {
+				top: 5%;
+				right: 5%;
+			}
+
+			&:nth-of-type(3) {
+				bottom: 7%;
+				left: 5%;
+			}
+
+			&:nth-of-type(4) {
+				bottom: 3%;
+				right: 10%;
+			}
+		}
+
+		a::before {
+			display: none;
+		}
+	}
+}
+
+//Mobile Home nav
+@include mobile {
+	#page--home nav {
+		a::after {
+			content: "";
+			position: absolute;
+			top: 50%;
+			left: 100%;
+			width: 3em;
+			border-bottom: 2px solid $red;
+			opacity: 0;
+			transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+		}
+
+		a.line-visible::after {
+			opacity: 1;
+		}
+		
+		a {
+			border-style: solid;
+
+			&:nth-of-type(1) {
+				&::after {
+					width: 1em;
+				}
+			}
+
+			&:nth-of-type(2) {
+				&::after {
+					width: 4em;
+				}
+			}
+
+			&:nth-of-type(3) {
+				&::after {
+					width: 5em;
+				}
+			}
+
+			&:nth-of-type(4) {
+				&::after {
+					width: 2em;
+				}
+			}
+		}
+
+		a::before {
+			display: none;
+		}
+	}
+}
+
 //Home Page
+
+#page--home {
+	min-height: 100lvh;
+}
 
 #home__graphic {
 	position: relative;
@@ -186,6 +284,7 @@ nav {
 		transform: none;
 		top: 0;
 		margin-top: 20vw;
+		margin-bottom: 10vw;
 	}
 }
 
@@ -206,6 +305,38 @@ nav {
 		width: 50%;
 		top: 48%;
 		left: 45%;
+	}
+}
+
+//Colony Lines
+
+#colony-lines-container {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	pointer-events: none;
+	z-index: 0;
+}
+
+$ease-in-out: cubic-bezier(0.51, 0, 0.5, 0.99);
+
+.colony-line {
+	position: absolute;
+	pointer-events: none;
+	border-style: solid;
+	box-sizing: border-box;
+	opacity: 0;
+	transition:
+		left 0.6s $ease-in-out,
+		top 0.6s $ease-in-out,
+		width 0.6s $ease-in-out,
+		height 0.6s $ease-in-out,
+		opacity 0.8s ease-in;
+
+	&.visible {
+		opacity: 1;
 	}
 }
 
@@ -368,8 +499,8 @@ $dish-size: 50vw;
 .portfolio__item__available {
 	color: $red;
 	text-transform: uppercase;
-	font-size: .8em;
-	letter-spacing: .05em;
+	font-size: 0.8em;
+	letter-spacing: 0.05em;
 	text-decoration: none;
 	// font-weight: 500;
 	// position: absolute;

@@ -374,15 +374,17 @@ $(document).ready(function () {
 
 	//Get Page
 	function getCursorXY(e) {
+		if (!e) return;
+		
 		var touch = undefined;
-		if (e.originalEvent.touches) {
+		if (e.originalEvent && e.originalEvent.touches) {
 			touch = e.originalEvent.touches[0];
 		}
 
 		if (e || touch) {
 			// if (e) {
-			pageX = e.pageX || touch.pageX;
-			pageY = e.pageY || touch.pageY;
+			pageX = e.pageX || (touch && touch.pageX);
+			pageY = e.pageY || (touch && touch.pageY);
 		}
 	}
 
