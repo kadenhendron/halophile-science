@@ -7,6 +7,8 @@
     let coloniesData = [];
     let lineShown = []; // Track which lines have been shown
     let previousColonyCount = 0; // Track colony count to detect new colonies
+    let previousWidth = window.innerWidth; // Track width to detect real resizes vs mobile browser UI changes
+    let resizeDebounceTimer = null; // Debounce timer for resize resets
 
     function init() {
         // Only run on home page
@@ -62,10 +64,29 @@
     }
 
     function handleResize() {
-        // Reset all lines to initial state
-        resetLines();
-        // Then update with new positions
+        const currentWidth = window.innerWidth;
+        
+        // Always update positions immediately
         updateLines();
+        
+        // Only reset if width changed (real resize/orientation change)
+        // Height changes are usually just mobile browser UI showing/hiding
+        if (currentWidth !== previousWidth) {
+            previousWidth = currentWidth;
+            
+            // Clear existing debounce timer
+            if (resizeDebounceTimer) {
+                clearTimeout(resizeDebounceTimer);
+            }
+            
+            // Debounce the reset - wait 150ms after last width change
+            resizeDebounceTimer = setTimeout(() => {
+                // Reset all lines to initial state
+                resetLines();
+                // Then update with new positions
+                updateLines();
+            }, 150);
+        }
     }
 
     function resetLines() {
@@ -96,6 +117,8 @@
 
         // Track which colonies have been assigned and their positions
         const assignments = {};
+        // Track which lines were assigned in this update
+        const assignedLines = new Set();
 
         navItems.forEach((navItem, index) => {
             const navRect = navItem.getBoundingClientRect();
@@ -107,8 +130,11 @@
             
             // Find nearest unused colony that doesn't create crossing lines
             const colony = findNearestColony(navX, navY, assignments, index, navPoint);
-            if (!colony) return;
+            if (!colony) {
+                return;
+            }
             
+            assignedLines.add(index);
             assignments[index] = colony;
             
             const colonyX = colony.x;
@@ -145,6 +171,17 @@
                     // Also fade in the ::after on mobile
                     navItem.classList.add('line-visible');
                 }, 50);
+            }
+        });
+        
+        // Hide any lines that weren't assigned in this update
+        lines.forEach((line, index) => {
+            if (!assignedLines.has(index) && lineShown[index]) {
+                line.style.transition = 'none';
+                line.style.opacity = '0';
+                line.classList.remove('visible');
+                navItems[index].classList.remove('line-visible');
+                lineShown[index] = false;
             }
         });
     }

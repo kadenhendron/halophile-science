@@ -25,6 +25,8 @@
         const ctx = canvas.getContext('2d');
         let imageData, pixels, width, height, centerX, centerY, radius, scale;
         const referenceSize = 800; // All config values are relative to 800x800
+        let previousWidth = window.innerWidth; // Track width to detect real resizes vs mobile browser UI changes
+        let resizeDebounceTimer = null; // Debounce timer for resize resets
         
         // Set canvas resolution
         function resizeCanvas() {
@@ -52,12 +54,30 @@
         }, 100);
 
         window.addEventListener('resize', () => {
+            const currentWidth = window.innerWidth;
+            
+            // Always resize canvas immediately
             resizeCanvas();
-            // Restart animation on resize
-            colonies = [];
-            activePixels = new Map();
-            for (let i = 0; i < config.initialColonies; i++) {
-                createRandomColony();
+            
+            // Only restart animation if width changed (real resize/orientation change)
+            // Height changes are usually just mobile browser UI showing/hiding
+            if (currentWidth !== previousWidth) {
+                previousWidth = currentWidth;
+                
+                // Clear existing debounce timer
+                if (resizeDebounceTimer) {
+                    clearTimeout(resizeDebounceTimer);
+                }
+                
+                // Debounce the reset - wait 150ms after last width change
+                resizeDebounceTimer = setTimeout(() => {
+                    // Restart animation on resize
+                    colonies = [];
+                    activePixels = new Map();
+                    for (let i = 0; i < config.initialColonies; i++) {
+                        createRandomColony();
+                    }
+                }, 150);
             }
         });
 
